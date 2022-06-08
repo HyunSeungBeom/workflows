@@ -37,7 +37,7 @@ export function Main() {
       });
     }
   }, [updateWord, wordLists]);
-
+  console.log("text");
   return (
     <Background1>
       <span style={{ color: "white" }}> MY DICITONARY</span>
