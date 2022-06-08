@@ -24,7 +24,9 @@ export function Main() {
   );
   const wordLists = useSelector((state: RootState) => state.word.word);
   const dicitionary = async () => {
-    const res = await axios.get("http://localhost:5001/dictionary");
+    const res = await axios.get(
+      "http://seungbeom.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
+    );
     return res.data;
   };
 
