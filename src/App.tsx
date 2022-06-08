@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Main } from "./Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Write } from "./Write";
+import { createGlobalStyle } from "styled-components";
+import { Revise } from "./Revise";
+
+const GlobalStyle = createGlobalStyle`
+*{
+font-family: "Jua", sans-serif;
+}
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routes>
+        <Route path={"/"} element={<Main />} />
+        <Route path={"/write"} element={<Write />} />
+        <Route path={"/revise"} element={<Revise />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
