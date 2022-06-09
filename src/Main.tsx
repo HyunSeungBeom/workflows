@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ import { IWords } from "./redux/Word/types";
 import { ButtonPlus, Scroll } from "./StyleComponents";
 
 export function Main() {
+  const [mouse, setMouse] = useState(false);
   const nav = useNavigate();
   const move = () => {
     nav("/write");
@@ -39,7 +40,6 @@ export function Main() {
       });
     }
   }, [updateWord, wordLists]);
-  console.log("test");
   return (
     <Background1>
       <span style={{ color: "white" }}> MY DICITONARY</span>
@@ -52,14 +52,19 @@ export function Main() {
           </Gapstyle>
 
           <ButtonPlus>
-            <FaPlusCircle onClick={move} cursor="pointer"></FaPlusCircle>
+            <FaPlusCircle
+              onClick={move}
+              cursor="pointer"
+              color={mouse ? "blue" : "#1c1c1c"}
+              onMouseOver={() => setMouse(true)}
+              onMouseLeave={() => setMouse(false)}
+            ></FaPlusCircle>
           </ButtonPlus>
         </Background2>
       </Scroll>
     </Background1>
   );
 }
-
 const Background1 = styled.div`
   position: fixed;
   width: 100%;

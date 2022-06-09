@@ -66,14 +66,12 @@ export const Scroll = styled.nav`
 `;
 
 export const ButtonPlus = styled.div`
-  color: white;
-  cursor: pointer;
   font-size: 60px;
   display: flex;
   justify-content: right;
-  padding-bottom: 200px;
-  padding-top: 20px;
-  &:hover {
-    color: blue;
-  }
+  position: sticky;
+  width: 60px;
+  height: 60px;
+  float: right;
+  bottom: 80px;
 `;

@@ -18,7 +18,6 @@ export function Write() {
     (word: IWords) => dispatch(addWord({ word: word })),
     [dispatch]
   );
-  console.log(wordLists);
   const Click = () => {
     const inputData: IWords = {
       word: word,

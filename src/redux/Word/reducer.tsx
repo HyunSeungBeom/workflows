@@ -25,8 +25,12 @@ const word = createReducer<Word, WordAction>(initailState, {
       if (
         action.payload.word.id !== undefined &&
         action.payload.word.id !== null
-      )
-        draft.word[action.payload.word.id] = { ...action.payload.word };
+      ) {
+        const idx = draft.word.findIndex(
+          (v) => v.id === action.payload.word.id
+        );
+        draft.word[idx] = { ...action.payload.word };
+      }
     });
   },
 });
