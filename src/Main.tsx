@@ -39,7 +39,7 @@ export function Main() {
       });
     }
   }, [updateWord, wordLists]);
-
+  console.log("test");
   return (
     <Background1>
       <span style={{ color: "white" }}> MY DICITONARY</span>
@@ -52,7 +52,7 @@ export function Main() {
           </Gapstyle>
 
           <ButtonPlus>
-            <FaPlusCircle onClick={move}></FaPlusCircle>
+            <FaPlusCircle onClick={move} cursor="pointer"></FaPlusCircle>
           </ButtonPlus>
         </Background2>
       </Scroll>

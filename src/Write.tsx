@@ -16,16 +16,15 @@ export function Write() {
   const wordLists = useSelector((state: RootState) => state.word.word);
   const updateWord = useCallback(
     (word: IWords) => dispatch(addWord({ word: word })),
-
     [dispatch]
   );
-
+  console.log(wordLists);
   const Click = () => {
     const inputData: IWords = {
       word: word,
       explanation: explanation,
       example: example,
-      id: wordLists.length,
+      id: wordLists.length > 0 ? wordLists[wordLists.length - 1].id + 1 : 0,
     };
     updateWord(inputData);
     nav("/");
